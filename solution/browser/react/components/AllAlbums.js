@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default class AllAlbums extends Component {
+const AllAlbums = (props) => {
 
-  render () {
-    const albums = this.props.albums;
-    const selectAlbum = this.props.selectAlbum;
+  const albums = props.albums;
 
-    return (
-      <div>
-        <h3>Albums</h3>
-        <div className="row">
+  return (
+    <div>
+      <h3>Albums</h3>
+      <div className="row">
         {
           albums.map(album => (
             <div className="col-xs-4" key={ album.id }>
-              <a className="thumbnail" href="#" onClick={() => selectAlbum(album.id)}>
+              <Link className="thumbnail" to={`/albums/${album.id}`}>
                 <img src={ album.imageUrl } />
                 <div className="caption">
                   <h5>
@@ -21,12 +20,13 @@ export default class AllAlbums extends Component {
                   </h5>
                   <small>{ album.songs.length } songs</small>
                 </div>
-              </a>
+              </Link>
             </div>
           ))
         }
-        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default AllAlbums;
