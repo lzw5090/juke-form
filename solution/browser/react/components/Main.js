@@ -6,9 +6,9 @@ import AllArtists from './AllArtists';
 import SingleArtist from './SingleArtist';
 import Sidebar from './Sidebar';
 import Player from './Player';
-import NewPlaylist from './NewPlaylist'
-import Playlist from './Playlist'
-import axios from 'axios'
+import NewPlaylist from './NewPlaylist';
+import Playlist from './Playlist';
+import axios from 'axios';
 
 
 export default class Main extends Component {
