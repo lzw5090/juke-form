@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Songs from './Songs';
 import axios from 'axios';
-
+import AddSongForm from './AddSongForm'
 export default class Playlist extends Component {
     constructor() {
         super();
@@ -32,12 +32,18 @@ export default class Playlist extends Component {
         const currentplaylistId = this.props.match.params.playlistId;
         if (nextplaylistId!==currentplaylistId) this.fetch(nextplaylistId);
     }
-
+    
+    
     render() {
         return (<div>
+
             <h3>{this.state.playlist.name}</h3>
+            <AddSongForm/>
+
             <Songs songs={this.state.playlist.songs} /> {/** Hooray for reusability! */}
+            
             {this.state.playlist.songs && !this.state.playlist.songs.length && <small>No songs.</small>}
+           
             <hr />
         </div>)
     };
