@@ -23,14 +23,15 @@ export default class NewPlaylist extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log(this.state.inputValues)
+        this.props.addPlaylist(this.state.inputValues);
         this.setState({
-            inputValues: ""
+            inputValues: "",
+            isDirty: false
         })
-        axios.post('/api/playlists', this.state.inputValues)
-            .then(res => {
-                console.log(res)
-              })
+        // axios.post('/api/playlists', {name: this.state.inputValues})
+        //     .then(res => {
+        //         console.log(res)
+        //       })
             // .then(result => {
             //     sole.log(result) // response json from the server!
             // });
